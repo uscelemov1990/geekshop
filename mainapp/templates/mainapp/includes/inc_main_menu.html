@@ -1,5 +1,5 @@
-            <a href="{% url "index" %}" class="logo"></a>
-            <ul class="menu">
+<a href="{% url "index" %}" class="logo"></a>
+<ul class="menu">
 
 <li><a href="{% url "index" %}" {% if request.resolver_match.url_name == "index" %}class="active"{% endif %}>домой</a></li>
 <li><a href="{% url "products:products" %}" {% if "products" in request.resolver_match.url_name %}class="active"{% endif %}>продукты</a></li>
@@ -14,5 +14,10 @@
         <li><a href="{% url "auth:login" %}" >войти</a></li>
     {% endif %}
             </ul>>
-            <a href="#" class="search"></a>
-            <a href="{% url "basket:basket" %}" class="basket">{{ basket }}</a>
+<a href="#" class="search"></a>
+<a href="{% url "basket:basket" %}" class="basket">
+    {% if basket %}
+        {{ basket.0.total_cost|floatformat:0 }}руб
+        {{ basket.0.total_quantity }}шт
+    {% endif %}
+</a>
