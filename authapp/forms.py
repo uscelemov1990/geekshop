@@ -28,11 +28,11 @@ class ShopUserRegisterForm(UserCreationForm):
             field.widget.attrs['class'] = 'form-control'
             field.help_text = ''
 
-    def clean_age(self):
-        data = self.changed_data['age']
-        if data < 18:
-            return forms.ValidationError('Слишком молод')
-        return data
+#    def clean_age(self):
+#        data = self.changed_data['age']
+#        if data < 18:
+#            return forms.ValidationError('Слишком молод')
+#        return data
 
 
 class ShopUserEditForm(UserChangeForm):
@@ -49,8 +49,8 @@ class ShopUserEditForm(UserChangeForm):
             if field_name == 'password':
                 field.widget = forms.HiddenInput()
 
-    def clean_age(self):
-        data = self.changed_data['age']
-        if data < 18:
-            return forms.ValidationError('Слишком молод')
-        return data
+#    def clean_age(self):
+#        data = self.changed_data['age']
+#        if data < 18:
+#            return forms.ValidationError('Слишком молод')
+#        return data
