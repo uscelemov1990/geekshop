@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'adminapp',
+    'authapp',
+    'basketapp',
     'mainapp',
 ]
 
@@ -71,6 +74,9 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'geekshop.wsgi.application'
+
+
+AUTH_USER_MODEL = 'authapp.ShopUser'
 
 
 # Database
@@ -126,7 +132,13 @@ STATICFILES_DIRS = (
     BASE_DIR/'static',
 )
 
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = BASE_DIR / 'media'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = '/auth/login/'
