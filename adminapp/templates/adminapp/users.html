@@ -16,7 +16,7 @@
           src="{{ object.avatar|media_for_users }}"
           alt="{{ object.username }}">
         <div class="user_role">
-          {% if object.is_superuser %}
+            {% if object.is_superuser %}
             администратор
           {% else %}
             пользователь

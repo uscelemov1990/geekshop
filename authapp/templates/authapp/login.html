@@ -3,13 +3,13 @@
 
 {% block content %}
     <form class="form-horizontal" action="{% url "auth:login" %}" method="post">
-    {% csrf_token %}
-    {{ login_form.as_p }}
+        {% csrf_token %}
+        {{ login_form.as_p }}
         {% if next %}
             <input type="hiden" name="next" value="{{ next }}">
         {% endif %}
-    <input type="submit" class="btn btn-primary" value="войти">
-    <hr>
+        <input type="submit" class="btn btn-primary" value="войти">
+        <hr>
         <a href={% url "auth:register" %}>регистрация</a>
     </form>
 
