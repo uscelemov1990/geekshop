@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'adminapp',
     'authapp',
     'basketapp',
+    'ordersapp',
     'mainapp',
 ]
 
@@ -172,6 +173,8 @@ EMAIL_FILE_PATH = 'tmp/email-messages/'
 # EMAIL_FILE_PATH = 'tmp/'
 
 BASE_URL = os.getenv('BASE_URL')
+
+
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
