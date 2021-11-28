@@ -37,13 +37,6 @@ class Order(models.Model):
         _items = self.orderitem_set.select_related()
         return sum(list(map(lambda x: x.product_cost, _items)))
 
-    def delete(self, *args, **kwargs):
-        for item in self.orderitem_set:
-            item.product.quantity += item.quantity
-            item.product.save()
-        self.is_active = False
-        self.save()
-
 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
@@ -54,6 +47,9 @@ class OrderItem(models.Model):
     def get_product_cost(self):
         return self.product.price * self.quantity
 
+    @staticmethod
+    def get_item(pk):
+        return OrderItem.objects.get(pk=pk)
 
 
 
